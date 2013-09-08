@@ -1,0 +1,83 @@
+execute pathogen#infect()
+let mapleader=","
+
+set nocompatible                " Отключени режима совместимости с VI
+filetype off
+set number                      " Включает нумерацию строк
+set cursorline                  " Подсветка текущей строки
+syntax on                       " Подсветка синтаксиса
+filetype plugin indent on       " Игнорирование регистра при поиске
+
+set list listchars=tab:▸-,trail:·,eol:¶
+set list
+
+" Форсируем себя на использование hjkl
+inoremap        <Up>    <NOP>
+inoremap        <Down>  <NOP>
+inoremap        <Left>  <NOP>
+inoremap        <Right> <NOP>
+noremap         <Down>  <NOP>
+noremap         <Left>  <NOP>
+noremap         <Right> <NOP>
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'tpope/vim-rails.git'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'https://github.com/flazz/vim-colorschemes'
+Bundle 'bling/vim-airline'
+Bundle 'https://github.com/scrooloose/syntastic'
+
+let g:airline_powerline_fonts = 1   " Включение возможностей powerline шрифтов для vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_detect_modified= 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = 'detached'
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#whitespace#show_message = 1
+let g:airline#extensions#tabline#enabled = 1
+
+function! AirlineInit()
+    let g:airline_section_a = airline#section#create(['mode', ' ', 'foo'])
+    let g:airline_section_b = airline#section#create_left(['ffenc','file'])
+    let g:airline_section_c = airline#section#create(['%{getcwd()}'])
+endfunction
+autocmd VimEnter * call AirlineInit()
+
+colorscheme molokai
+
+" Highlight extra whitespaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+
+set tabstop=4 softtabstop=0 shiftwidth=8 expandtab
+
+if has("autocmd")
+     "Включаем определение типов файлов
+     filetype on
+     autocmd FileType php setlocal ts=4 sts=4 sw=4 et
+     autocmd FileType python setlocal ts=4 sts=4 sw=4 et
+     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 et
+
+     autocmd FileType html setlocal ts=2 sts=2 sw=2 et
+     autocmd FileType xhtml setlocal ts=2 sts=2 sw=2 et
+     autocmd FileType xml setlocal ts=2 sts=2 sw=2 et
+     autocmd FileType css setlocal ts=2 sts=2 sw=2 et
+
+     autocmd FileType vim setlocal ts=4 sts=4 sw=4 et
+     autocmd FileType apache setlocal ts=2 sts=2 sw=2 et
+     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 et
+
+     autocmd BufNewFile,BufRead *.tmpl,*.tpl setfiletype html
+endif
