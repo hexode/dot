@@ -1,24 +1,4 @@
 execute pathogen#infect()
-let mapleader=","
-
-set nocompatible                " Отключени режима совместимости с VI
-filetype off
-set number                      " Включает нумерацию строк
-set cursorline                  " Подсветка текущей строки
-syntax on                       " Подсветка синтаксиса
-filetype plugin indent on       " Игнорирование регистра при поиске
-
-set list listchars=tab:▸-,trail:·,eol:¶
-set list
-
-" Форсируем себя на использование hjkl
-inoremap        <Up>    <NOP>
-inoremap        <Down>  <NOP>
-inoremap        <Left>  <NOP>
-inoremap        <Right> <NOP>
-noremap         <Down>  <NOP>
-noremap         <Left>  <NOP>
-noremap         <Right> <NOP>
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -33,7 +13,41 @@ Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'https://github.com/flazz/vim-colorschemes'
 Bundle 'bling/vim-airline'
 Bundle 'https://github.com/scrooloose/syntastic'
+Bundle 'maksimr/vim-yate'
+Bundle 'terryma/vim-multiple-cursors'
 
+let mapleader=","
+
+set nocompatible                " Отключени режима совместимости с VI
+filetype off                    " Отключает распознавание типа файла
+set number                      " Включает нумерацию строк
+set cursorline                  " Подсветка текущей строки
+syntax on                       " Подсветка синтаксиса
+filetype plugin indent on       " Игнорирование регистра при поиске
+
+" Подсветка метасимволов
+set backspace=indent,eol,start                  " Баги с бэкспейсом
+set list listchars=tab:▸-,trail:·,eol:¶         " Подсвтека неотображаемых символов
+set list
+
+" Highlight extra whitespaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Форсируем себя на использование hjkl
+inoremap        <Up>    <NOP>
+inoremap        <Down>  <NOP>
+inoremap        <Left>  <NOP>
+inoremap        <Right> <NOP>
+noremap         <Down>  <NOP>
+noremap         <Left>  <NOP>
+noremap         <Right> <NOP>
+
+" AIRLINE PLUGIN SECTION
 let g:airline_powerline_fonts = 1   " Включение возможностей powerline шрифтов для vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_detect_modified= 1
@@ -52,17 +66,8 @@ autocmd VimEnter * call AirlineInit()
 
 colorscheme molokai
 
-" Highlight extra whitespaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
-
-set tabstop=4 softtabstop=0 shiftwidth=8 expandtab
-
+" Auto indent, tab and spaces
+set tabstop=4 softtabstop=0 shiftwidth=4 expandtab
 if has("autocmd")
      "Включаем определение типов файлов
      filetype on
