@@ -1,7 +1,8 @@
-execute pathogen#infect()
+" execute pathogen#infect()
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
@@ -15,6 +16,11 @@ Bundle 'bling/vim-airline'
 Bundle 'https://github.com/scrooloose/syntastic'
 Bundle 'maksimr/vim-yate'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'ervandew/supertab'
+Bundle 'msanders/snipmate.vim'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'altercation/vim-colors-solarized'
+
 
 let mapleader=","
 
@@ -64,7 +70,12 @@ function! AirlineInit()
 endfunction
 autocmd VimEnter * call AirlineInit()
 
-colorscheme molokai
+set background=dark
+let g:solarized_termcolors = 256
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_termtrans = 1
+colorscheme solarized
 
 " Auto indent, tab and spaces
 set tabstop=4 softtabstop=0 shiftwidth=4 expandtab

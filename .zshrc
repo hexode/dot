@@ -45,12 +45,11 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=$HOME/local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # hexode aliases
 alias daria2='ssh daria2.yandex.ru'
 alias zshreload='source ~/.zshrc'
 alias zshfix='rm -f ~/.zcompdump; compinit'
 
-[[ -s /Users/hexode/.nvm/nvm.sh ]] && . /Users/hexode/.nvm/nvm.sh # This loads NVM
-# [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
