@@ -77,7 +77,7 @@ function! AirlineInit()
     let g:airline_section_b = airline#section#create_left(['ffenc','file'])
     let g:airline_section_c = airline#section#create(['%{getcwd()}'])
 endfunction
-autocmd VimEnter * call AirlineInit()
+" autocmd VimEnter * call AirlineInit()
 
 set background=dark
 let g:solarized_termcolors = 256
