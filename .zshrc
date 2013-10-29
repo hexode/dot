@@ -53,3 +53,8 @@ alias zshreload='source ~/.zshrc'
 alias zshfix='rm -f ~/.zcompdump; compinit'
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export PATH=~/.linuxbrew/bin:$PATH
+export LD_LIBRARY_PATH=~/.linuxbrew/lib

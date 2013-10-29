@@ -20,7 +20,14 @@ Bundle 'ervandew/supertab'
 Bundle 'msanders/snipmate.vim'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'vim-flake8'
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'kien/ctrlp.vim'
+Bundle 'vim-scripts/Conque-Shell'
+Bundle 'Shougo/vimshell.vim'
+Bundle 'Shougo/vimproc'
 
+map <C-n> :NERDTreeToggle<CR>
 
 let mapleader=","
 
