@@ -26,8 +26,10 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/Conque-Shell'
 Bundle 'Shougo/vimshell.vim'
 Bundle 'Shougo/vimproc'
+Bundle 'jnwhiteh/vim-golang'
 
 map <C-n> :NERDTreeToggle<CR>
+set runtimepath+=$GOROOT/misc/vim
 
 let mapleader=","
 

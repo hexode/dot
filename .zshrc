@@ -40,21 +40,22 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+
 # Customize to your needs...
-export PATH=$HOME/local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=$HOME/local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
 
 # hexode aliases
 alias daria2='ssh daria2.yandex.ru'
 alias zshreload='source ~/.zshrc'
-alias zshfix='rm -f ~/.zcompdump; compinit'
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-export PATH=~/.linuxbrew/bin:$PATH
-export LD_LIBRARY_PATH=~/.linuxbrew/lib
+[[ -s /Users/hexode/.nvm/nvm.sh ]] && . /Users/hexode/.nvm/nvm.sh # This loads NVM
+
