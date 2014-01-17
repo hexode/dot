@@ -42,7 +42,7 @@ filetype plugin indent on       " Игнорирование регистра п
 
 " Подсветка метасимволов
 set backspace=indent,eol,start                  " Баги с бэкспейсом
-set list listchars=tab:▸-,trail:·,eol:¶         " Подсвтека неотображаемых символов
+set list listchars=tab:▸-,trail:·               " Подсвтека неотображаемых символов
 set list
 
 " Highlight extra whitespaces
@@ -85,6 +85,7 @@ let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 let g:solarized_termtrans = 1
 colorscheme solarized
+" colorscheme molokai
 
 " Auto indent, tab and spaces
 set tabstop=4 softtabstop=0 shiftwidth=4 expandtab
@@ -106,3 +107,6 @@ if has("autocmd")
 
      autocmd BufNewFile,BufRead *.tmpl,*.tpl setfiletype html
 endif
+
+set nobackup
+set nowritebackup

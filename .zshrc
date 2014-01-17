@@ -41,7 +41,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-plugins=(git)
+plugins=(git tmux sudo zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,12 +50,19 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
 
 # hexode aliases
-alias daria2='ssh daria2.yandex.ru'
+alias d2='ssh daria2.yandex.ru'
 alias zshreload='source ~/.zshrc'
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-[[ -s /Users/hexode/.nvm/nvm.sh ]] && . /Users/hexode/.nvm/nvm.sh # This loads NVM
+#export PATH=~/.linuxbrew/bin:$PATH
+#export LD_LIBRARY_PATH=~/.linuxbrew/lib
+export SHELL=$(which zsh)
 
+export TERM='xterm-256color'
+export TERM='xterm-256color'
+
+export GOROOT=/usr/lib/go
+export GOBIN=/usr/bin/go
