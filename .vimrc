@@ -27,9 +27,18 @@ Bundle 'vim-scripts/Conque-Shell'
 Bundle 'Shougo/vimshell.vim'
 Bundle 'Shougo/vimproc'
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'mileszs/ack.vim'
+Bundle 'gregsexton/MatchTag'
+Bundle 'nono/jquery.vim'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'wavded/vim-stylus'
 
-map <C-n> :NERDTreeToggle<CR>
 set runtimepath+=$GOROOT/misc/vim
+map <C-±> :NERDTreeToggle<CR>
 
 let mapleader=","
 
@@ -40,10 +49,24 @@ set cursorline                  " Подсветка текущей строки
 syntax on                       " Подсветка синтаксиса
 filetype plugin indent on       " Игнорирование регистра при поиске
 
+"" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" " Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" " Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 2
+
+let g:syntastic_javascript_checkers = ['jshint']
+
 " Подсветка метасимволов
 set backspace=indent,eol,start                  " Баги с бэкспейсом
 set list listchars=tab:▸-,trail:·               " Подсвтека неотображаемых символов
 set list
+
+set incsearch
+set ignorecase
 
 " Highlight extra whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -86,6 +109,8 @@ let g:solarized_contrast = "high"
 let g:solarized_termtrans = 1
 colorscheme solarized
 " colorscheme molokai
+
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 " Auto indent, tab and spaces
 set tabstop=4 softtabstop=0 shiftwidth=4 expandtab
