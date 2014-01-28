@@ -62,7 +62,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export SHELL=$(which zsh)
 
 export TERM='xterm-256color'
-export TERM='xterm-256color'
 
 export GOROOT=/usr/lib/go
 export GOBIN=/usr/bin/go
+export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
