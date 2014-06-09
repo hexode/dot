@@ -3,46 +3,51 @@
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'https://github.com/flazz/vim-colorschemes'
-Bundle 'bling/vim-airline'
-Bundle 'https://github.com/scrooloose/syntastic'
-Bundle 'maksimr/vim-yate'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'ervandew/supertab'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'marijnh/tern_for_vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-flake8'
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/Conque-Shell'
-Bundle 'Shougo/vimshell.vim'
-Bundle 'Shougo/vimproc'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'jelera/vim-javascript-syntax'
 Bundle "pangloss/vim-javascript"
-Bundle 'mileszs/ack.vim'
-Bundle 'gregsexton/MatchTag'
-Bundle 'nono/jquery.vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'wavded/vim-stylus'
 Bundle "zweifisch/pipe2eval"
-Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'FuzzyFinder'
+Bundle 'L9'
 Bundle 'Raimondi/delimitMate'
-Bundle 'vim-scripts/EasyGrep'
-Bundle 'maksimr/vim-jsbeautify'
-Bundle 'jceb/vim-orgmode'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell.vim'
+Bundle 'SirVer/ultisnips'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
+Bundle 'dhruvasagar/vim-table-mode'
+Bundle 'ervandew/supertab'
+Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'gmarik/vundle'
+Bundle 'gregsexton/MatchTag'
 Bundle 'heavenshell/vim-jsdoc'
+Bundle 'honza/vim-snippets'
+Bundle 'hsitz/VimOrganizer'
+Bundle 'https://github.com/flazz/vim-colorschemes'
+Bundle 'https://github.com/scrooloose/syntastic'
+Bundle 'int3/vim-taglist-plus'
+Bundle 'jceb/vim-orgmode'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'kien/ctrlp.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'maksimr/vim-yate'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'nono/jquery.vim'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails.git'
+Bundle 'vim-flake8'
+Bundle 'vim-scripts/Conque-Shell'
+Bundle 'vim-scripts/EasyGrep'
+Bundle 'vimoutliner/vimoutliner'
+Bundle 'wavded/vim-stylus'
+
 
 set runtimepath+=$GOROOT/misc/vim
 map <C-±> :NERDTreeToggle<CR>
@@ -75,6 +80,8 @@ set list
 
 set incsearch
 set ignorecase
+" 		ksjdfkjsd
+
 
 " Highlight extra whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -83,6 +90,7 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+highlight SpecialKey ctermfg=1
 
 " Форсируем себя на использование hjkl
 inoremap        <Up>    <NOP>
@@ -108,13 +116,16 @@ function! AirlineInit()
     let g:airline_section_b = airline#section#create_left(['ffenc','file'])
     let g:airline_section_c = airline#section#create(['%{getcwd()}'])
 endfunction
-" autocmd VimEnter * call AirlineInit()
+autocmd VimEnter * call AirlineInit()
 
 set background=dark
 let g:solarized_termcolors = 256
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 let g:solarized_termtrans = 1
+" Отключить подсветку пробелов 		
+let g:solarized_visibility = "low"
+
 colorscheme solarized
 " colorscheme molokai
 
@@ -189,3 +200,5 @@ command! -nargs=? G call GitGrep(<f-args>)
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 
 
+nmap <F8> :TagbarToggle<CR>
+nmap <Leader>td :TernDef<CR>
