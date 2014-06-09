@@ -17,7 +17,8 @@ Bundle 'https://github.com/scrooloose/syntastic'
 Bundle 'maksimr/vim-yate'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'ervandew/supertab'
-Bundle 'msanders/snipmate.vim'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-flake8'
@@ -28,19 +29,26 @@ Bundle 'Shougo/vimshell.vim'
 Bundle 'Shougo/vimproc'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'jelera/vim-javascript-syntax'
-Bundle 'Lokaltog/vim-easymotion'
+Bundle "pangloss/vim-javascript"
 Bundle 'mileszs/ack.vim'
 Bundle 'gregsexton/MatchTag'
 Bundle 'nono/jquery.vim'
-Bundle 'maksimr/vim-jsbeautify'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'wavded/vim-stylus'
+Bundle "zweifisch/pipe2eval"
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Raimondi/delimitMate'
+Bundle 'vim-scripts/EasyGrep'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'jceb/vim-orgmode'
+Bundle 'heavenshell/vim-jsdoc'
 
 set runtimepath+=$GOROOT/misc/vim
 map <C-±> :NERDTreeToggle<CR>
 
 let mapleader=","
+set wildmode=list:longest,full " Автодополнение на манер zsh в командной строке
 
 set nocompatible                " Отключени режима совместимости с VI
 filetype off                    " Отключает распознавание типа файла
@@ -135,3 +143,49 @@ endif
 
 set nobackup
 set nowritebackup
+
+" Создание тестов
+command! RGenerate :execute ':!mkdir -p test/unit/'.expand('%:h').' && touch test/unit/'.expand('%:h').'/'.expand('%:t')
+nnoremap <Leader>tg :RGenerate<cr>
+
+command! RTest :execute ':open test/unit/'.expand('%:h').'/'.expand('%:t')
+nnoremap <Leader>tgg :RTest<cr>
+
+command! RFile :execute ':open '.substitute(expand('%'), 'test/unit/', '', '')
+nnoremap <Leader>tgf :RFile<cr>
+
+
+map <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
+
+
+func! GitGrep(...)
+  let save = &grepprg
+  set grepprg=git\ grep\ -n\ $*
+  let s = 'grep'
+  for i in a:000
+    let s = s . ' ' . i
+  endfor
+  exe s
+  let &grepprg = save
+endfun
+command! -nargs=? G call GitGrep(<f-args>)
+
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+
+
