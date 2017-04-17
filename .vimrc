@@ -1,52 +1,53 @@
 " execute pathogen#infect()
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle "pangloss/vim-javascript"
-Bundle "zweifisch/pipe2eval"
-Bundle 'FuzzyFinder'
-Bundle 'L9'
-Bundle 'Raimondi/delimitMate'
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell.vim'
-Bundle 'SirVer/ultisnips'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
-Bundle 'dhruvasagar/vim-table-mode'
-Bundle 'ervandew/supertab'
-Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'gmarik/vundle'
-Bundle 'gregsexton/MatchTag'
-Bundle 'heavenshell/vim-jsdoc'
-Bundle 'honza/vim-snippets'
-Bundle 'hsitz/VimOrganizer'
-Bundle 'https://github.com/flazz/vim-colorschemes'
-Bundle 'https://github.com/scrooloose/syntastic'
-Bundle 'int3/vim-taglist-plus'
-Bundle 'jceb/vim-orgmode'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'maksimr/vim-jsbeautify'
-Bundle 'maksimr/vim-yate'
-Bundle 'marijnh/tern_for_vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'nono/jquery.vim'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails.git'
-Bundle 'vim-flake8'
-Bundle 'vim-scripts/Conque-Shell'
-Bundle 'vim-scripts/EasyGrep'
-Bundle 'vimoutliner/vimoutliner'
-Bundle 'wavded/vim-stylus'
+Plugin 'pangloss/vim-javascript'
+Plugin 'zweifisch/pipe2eval'
+Plugin 'FuzzyFinder'
+Plugin 'L9'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Shougo/neocomplcache.vim'
+Plugin 'Shougo/vimproc'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'ervandew/supertab'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'gmarik/vundle'
+Plugin 'gregsexton/MatchTag'
+Plugin 'heavenshell/vim-jsdoc'
+Plugin 'honza/vim-snippets'
+Plugin 'hsitz/VimOrganizer'
+Plugin 'https://github.com/flazz/vim-colorschemes'
+Plugin 'https://github.com/scrooloose/syntastic'
+Plugin 'int3/vim-taglist-plus'
+Plugin 'jceb/vim-orgmode'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'maksimr/vim-yate'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'nono/jquery.vim'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails.git'
+Plugin 'vim-flake8'
+Plugin 'vim-scripts/Conque-Shell'
+Plugin 'vim-scripts/EasyGrep'
+Plugin 'vimoutliner/vimoutliner'
+Plugin 'wavded/vim-stylus'
+call vundle#end()
 
 
 set runtimepath+=$GOROOT/misc/vim
@@ -80,7 +81,6 @@ set list
 
 set incsearch
 set ignorecase
-" 		ksjdfkjsd
 
 
 " Highlight extra whitespaces
